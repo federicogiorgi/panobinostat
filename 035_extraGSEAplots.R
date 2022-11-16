@@ -45,12 +45,12 @@ ctr<-apply(rpms[,names(hashtags)[hashtags=="ctr"]],1,mean)
 
 
 
-i<-1
 png("plots/035_vioplot.png",w=4000,h=1000,res=450)
 par(mfrow=c(1,4))
+i<-1
 for(path in paths){
   genes<-intersect(mlist[[path]],rownames(rpms))
-  vioplot(log10(pnb[genes]+0.0001),log10(ctr[genes]+0.0001),col=i+1,ylab="Log10 RPM",names=c("pnb","ctr"),main=path)
+  vioplot(log10(pnb[genes]+0.0001),log10(ctr[genes]+0.0001),col=i+1,ylab="Log10 RPM",names=c("pnb","ctr"),main=path,cex.main=0.8)
   i<-i+1
 }
 dev.off()
